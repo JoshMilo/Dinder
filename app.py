@@ -1,4 +1,4 @@
-from flask import Flask, render_template, request
+from flask import Flask, render_template, request, jsonify
 
 app = Flask(__name__)
 
@@ -11,9 +11,11 @@ def hello():
 @app.route("/", methods=['GET', 'POST'])
 def home():
     if request.method == 'POST':
-        value = int(request.form['number'])
-        add_one = value + 1
-        return render_template('index.html', value=add_one)
+        number1 = int(request.form.get('first'))
+        number2 = int(request.form.get('second'))
+        total = number1 + number2
+        sums = {"total": str(total)}
+        return jsonify(sums)
     return render_template('index.html')
 
 if __name__ == '__main__':
