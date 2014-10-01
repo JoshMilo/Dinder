@@ -3,8 +3,8 @@ $(function() {
   return $("form").on("submit", function() {
     var valueOne, valueTwo;
     console.log("the form has been submitted");
-    valueOne = $('input[name="number"]').val();
-    valueTwo = $('input[name="number2"]').val();
+    valueOne = $('input[name="location"]').val();
+    valueTwo = $('input[name="language"]').val();
     console.log(valueOne, valueTwo);
     return $.ajax({
       url: "/",
@@ -14,8 +14,8 @@ $(function() {
         second: valueTwo
       },
       success: function(data) {
-        console.log(data);
-        $('#results').html(data.total);
+        console.log(data.items[0]);
+        $('#results').html(data.items[0].html_url);
         return $('input').val("");
       },
       error: function(error) {
