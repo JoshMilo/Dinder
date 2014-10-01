@@ -15,7 +15,7 @@ $(function() {
       },
       success: function(data) {
         console.log(data.items[0]);
-        $('#results').html(data.items[0].html_url);
+        $('#results').html('<a href="' + data.items[0].html_url + '">' + data.items[0].login + '</a><br><img src="' + data.items[0].avatar_url + '">');
         return $('input').val("");
       },
       error: function(error) {
