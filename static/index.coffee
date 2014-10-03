@@ -14,9 +14,13 @@ $ ->
       type: "POST"
       data: {first: valueOne, second: valueTwo}
       success: (data) ->
-        console.log data.items[0]
-        $('#results').html('<a href="'+data.items[0].html_url+'">'+data.items[0].login+'</a><br><img src="'+data.items[0].avatar_url+'">')
-        $('input').val("")
+        if data.items.lenght > 0
+          randNum = Math.floor(Math.random() * Object.keys(data.items).length)
+          console.log data.items[randNum]
+          $('#results').html('<a href="'+data.items[randNum].html_url+'">'+data.items[randNum].login+'</a><br><img src="'+data.items[randNum].avatar_url+'" class="avatar">')
+          $('input').val("")
+        else
+          $('#results').html("There was an error somewhere...everywhere. Try again")
       error: (error) ->
         console.log error
     })
