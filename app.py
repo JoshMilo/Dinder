@@ -10,7 +10,7 @@ def hello():
     return "hello world"
 
 
-@app.route("/", methods=['GET', 'POST'])
+@app.route('/', methods=['GET', 'POST'])
 def home():
     if request.method == 'POST':
         valueOne = request.form.get('first')

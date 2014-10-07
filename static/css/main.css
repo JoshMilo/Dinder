@@ -3,6 +3,7 @@
     padding-top: 20px;
 }
 input {
+		margin: 0.5em 0;
     max-width: 250px;
 }
 .avatar {
