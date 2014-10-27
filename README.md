@@ -1,4 +1,4 @@
 Dinder
 ======
 
-having some fun with flask with RealPython
+It's like Tinder, but for Devs...
